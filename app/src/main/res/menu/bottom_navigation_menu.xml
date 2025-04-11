@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_track"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="@string/activity_tracking" />
+    <item
+        android:id="@+id/navigation_feed"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/activity_feed" />
+    <item
+        android:id="@+id/navigation_social"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="@string/social" />
+    <item
+        android:id="@+id/navigation_challenges"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="@string/challenges" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="@string/profile" />
+</menu> 
