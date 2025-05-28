@@ -44,10 +44,11 @@ public class LoginActivity extends AppCompatActivity {
             // Show forgot password dialog or navigate to forgot password screen
             Toast.makeText(LoginActivity.this, "Forgot password feature coming soon!", Toast.LENGTH_SHORT).show();
         });
-        
+
         textViewSignUp.setOnClickListener(v -> {
-            // Navigate to sign up screen
-            Toast.makeText(LoginActivity.this, "Sign up feature coming soon!", Toast.LENGTH_SHORT).show();
+            // Navigate to RegisterActivity
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
     }
 
