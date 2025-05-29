@@ -1,0 +1,72 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        // Hanya user yang terautentikasi yang bisa membaca data mereka sendiri
+        ".read": "auth != null && auth.uid === $uid",
+        // Hanya user yang terautentikasi yang bisa menulis data mereka sendiri
+        ".write": "auth != null && auth.uid === $uid",
+        // Validasi data user
+        ".validate": "newData.hasChildren(['fullName', 'email'])",
+        "fullName": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        "email": {
+          ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$/i)"
+        },
+        "location": {
+          ".validate": "newData.isString()"
+        },
+        "bio": {
+          ".validate": "newData.isString()"
+        },
+        "profileImageUrl": {
+          ".validate": "newData.isString()"
+        },
+        "stats": {
+          "totalDistance": {
+            ".validate": "newData.isNumber() && newData.val() >= 0"
+          },
+          "totalActivities": {
+            ".validate": "newData.isNumber() && newData.val() >= 0"
+          },
+          "totalKudos": {
+            ".validate": "newData.isNumber() && newData.val() >= 0"
+          }
+        },
+        "social": {
+          "followers": {
+            ".validate": "newData.isNumber() && newData.val() >= 0"
+          },
+          "following": {
+            ".validate": "newData.isNumber() && newData.val() >= 0"
+          }
+        },
+        "activities": {
+          "$activityId": {
+            ".read": "auth != null",
+            ".write": "auth != null && auth.uid === $uid",
+            ".validate": "newData.hasChildren(['type', 'distance', 'duration', 'timestamp'])",
+            "type": {
+              ".validate": "newData.isString()"
+            },
+            "distance": {
+              ".validate": "newData.isNumber() && newData.val() > 0"
+            },
+            "duration": {
+              ".validate": "newData.isNumber() && newData.val() > 0"
+            },
+            "timestamp": {
+              ".validate": "newData.isNumber()"
+            }
+          }
+        }
+      }
+    },
+    // Rules untuk data publik
+    "public": {
+      ".read": "auth != null",
+      ".write": false
+    }
+  }
+} 

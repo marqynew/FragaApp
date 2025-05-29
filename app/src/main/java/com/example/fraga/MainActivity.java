@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
+import com.example.fraga.utils.FirestoreDataFixer;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
@@ -24,6 +25,16 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialize FirestoreDataFixer and run data fix
+        FirestoreDataFixer dataFixer = new FirestoreDataFixer();
+        dataFixer.fixData((success, error) -> {
+            if (success) {
+                Log.d("MainActivity", "Data structure fixed successfully");
+            } else {
+                Log.e("MainActivity", "Error fixing data structure", error);
+            }
+        });
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         if (bottomNavigationView != null) {

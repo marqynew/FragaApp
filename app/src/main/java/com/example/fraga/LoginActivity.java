@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -22,11 +23,16 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogin;
     private TextView textViewForgotPassword;
     private TextView textViewSignUp;
+    
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         // Initialize views
         textInputLayoutEmail = findViewById(R.id.textInputLayoutEmail);
@@ -41,12 +47,15 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(v -> attemptLogin());
         
         textViewForgotPassword.setOnClickListener(v -> {
-            // Show forgot password dialog or navigate to forgot password screen
-            Toast.makeText(LoginActivity.this, "Forgot password feature coming soon!", Toast.LENGTH_SHORT).show();
+            String email = editTextEmail.getText().toString().trim();
+            if (TextUtils.isEmpty(email)) {
+                textInputLayoutEmail.setError("Email is required");
+                return;
+            }
+            resetPassword(email);
         });
 
         textViewSignUp.setOnClickListener(v -> {
-            // Navigate to RegisterActivity
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
@@ -87,13 +96,39 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first form field with an error
             focusView.requestFocus();
         } else {
-            // For demo purposes, we'll just show a success message and proceed to main activity
-            // In a real app, you would authenticate with a server
+            // Show loading indicator
+            buttonLogin.setEnabled(false);
+            
+            // Attempt to sign in with Firebase
+            mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    buttonLogin.setEnabled(true);
+                    if (task.isSuccessful()) {
             loginSuccess();
+                    } else {
+                        Toast.makeText(LoginActivity.this, 
+                            "Authentication failed: " + task.getException().getMessage(),
+                            Toast.LENGTH_SHORT).show();
+                    }
+                });
         }
+    }
+
+    private void resetPassword(String email) {
+        mAuth.sendPasswordResetEmail(email)
+            .addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(LoginActivity.this,
+                        "Password reset email sent. Please check your email.",
+                        Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(LoginActivity.this,
+                        "Failed to send reset email: " + task.getException().getMessage(),
+                        Toast.LENGTH_SHORT).show();
+                }
+            });
     }
 
     private boolean isEmailValid(String email) {
@@ -106,6 +141,6 @@ public class LoginActivity extends AppCompatActivity {
         // Navigate to the main activity
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
-        finish(); // Close the login activity so user can't go back to it using back button
+        finish(); // Close the login activity
     }
 } 
