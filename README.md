@@ -1,5 +1,8 @@
 # Fraga - Social Fitness App
 
+Oleh : 
+Ammar Qurthuby - 2208107010031
+M taris Rizki  - 2208107010047
 
 ## Features
 
