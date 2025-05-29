@@ -39,7 +39,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    
+
+    // Room components
+    val room_version = "2.6.1" // Anda bisa mengganti dengan versi terbaru jika ada
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     

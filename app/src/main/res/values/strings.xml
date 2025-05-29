@@ -18,17 +18,13 @@
     <string name="running">Running</string>
     <string name="cycling">Cycling</string>
     <string name="swimming">Swimming</string>
-    
+
     <!-- Login strings -->
     <string name="login">LOGIN</string>
     <string name="sign_in">Sign In</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="email_address">Email Address</string>
-    <string name="password">Password</string>
-    <string name="forgot_password">Forgot Password?</string>
     <string name="dont_have_account">Don\'t have an account?</string>
-    <string name="app_slogan">Track. Achieve. Share.</string>
-    
+    <string name="already_have_account_text">Already have an account? Login</string> <string name="app_slogan">Track. Achieve. Share.</string>
+    <string name="sign_up">Sign Up</string> <string name="create_account_title">Create Account</string> <string name="email_address">Email Address</string> <string name="password">Password</string> <string name="full_name_hint">Full Name</string> <string name="confirm_password_hint">Confirm Password</string> <string name="forgot_password">Forgot Password?</string>
     <!-- Activity details strings -->
     <string name="activity_details">Activity Details</string>
     <string name="elevation_gain">Elevation Gain</string>
@@ -42,4 +38,18 @@
     <string name="kilometer">Kilometer</string>
     <string name="time">Time</string>
     <string name="share_activity">Share Activity</string>
+
+    <string name="default_distance_tracking">0.00 km</string>
+    <string name="default_duration_tracking">00:00:00</string>
+    <string name="default_pace_tracking">0:00 /km</string>
+
+    <string name="add_friend_button_desc">Add Friend</string>
+    <string name="find_people_button_desc">Find People</string>
+    <string name="filter_leaderboard_button_desc">Filter Leaderboard</string>
+    <string name="add_friend_dialog_title">Add Friend</string>
+    <string name="send_request_button">Send Request</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="friend_request_sent_toast">Friend request sent to: %1$s</string>
+    <string name="view_progress_button">View Progress</string>
+    <string name="join_challenge_button">Join Challenge</string>
 </resources>
