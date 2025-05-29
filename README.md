@@ -72,21 +72,6 @@ app/
 └── build.gradle
 ```
 
-## Setup
-
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/fraga.git
-```
-
-2. Open the project in Android Studio
-
-3. Add your Firebase configuration
-   - Create a new Firebase project
-   - Add your `google-services.json` to the app directory
-   - Enable Authentication and Firestore in Firebase Console
-
-4. Build and run the project
 
 ## Dependencies
 
