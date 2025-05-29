@@ -1,6 +1,5 @@
 # Fraga - Social Fitness App
 
-Fraga is a social fitness application that helps users track their workouts, connect with friends, and stay motivated through social features. The app is built using Android native development with Kotlin and follows modern Android development practices.
 
 ## Features
 
@@ -31,7 +30,6 @@ Fraga is a social fitness application that helps users track their workouts, con
 ## Technical Stack
 
 ### Frontend
-- Kotlin
 - Android SDK
 - Material Design Components
 - Glide (Image loading)
@@ -144,5 +142,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
 Project Link: [https://github.com/yourusername/fraga](https://github.com/yourusername/fraga) 
