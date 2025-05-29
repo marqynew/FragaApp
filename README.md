@@ -118,7 +118,6 @@ dependencies {
 - [ ] Group activities
 - [ ] Leaderboards
 - [ ] Chat functionality
-- [ ] Privacy settings
 - [ ] Activity sharing
 
 ## Contributing
