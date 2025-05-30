@@ -39,6 +39,7 @@ Oleh :
 - ViewBinding
 
 ### Backend
+Link FireBase : [https://console.firebase.google.com/project/fraga-4e157](https://console.firebase.google.com/project/fraga-4e157) 
 - Firebase Authentication
 - Firebase Firestore
 - Firebase Storage
