@@ -46,9 +46,8 @@ Link FireBase : [https://console.firebase.google.com/project/fraga-4e157](https:
 - Firebase Storage
 - Firebase Cloud Messaging (Planned)
 
-The Firebase configuration file (google-services.json) located in the app/.
-
-The database.rules.json file as the security rules for Firebase Realtime Database.
+The Firebase configuration file [google-services.json](google-services.json) located in the app/.
+The [database.rules.json](database.rules.json) file as the security rules for Firebase Realtime Database.
 
 ### Architecture
 - MVVM (Model-View-ViewModel) Architecture
