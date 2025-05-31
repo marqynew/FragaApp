@@ -40,6 +40,8 @@ Oleh :
 
 ### Backend
 Link FireBase : [https://console.firebase.google.com/project/fraga-4e157](https://console.firebase.google.com/project/fraga-4e157) 
+File konfigurasi Firebase (google-services.json) yang berada di '''app/'''
+
 - Firebase Authentication
 - Firebase Firestore
 - Firebase Storage
